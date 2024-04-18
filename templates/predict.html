@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNINDEX predict</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <div class="container container-image">
+        <!-- code here -->
+        <div class="card">
+            <div class="card-image">
+                <h2 class="card-heading">
+                    VNINDEX price prediction
+                </h2>
+            </div>
+
+            <div id="result">
+                <div class="px-4 pb-4 pt-2">
+                    <p style="color: darkred; font-weight: bold;">Visualize data history</p>
+                    <img src="{{ image_visualize }}" alt="Image visualize">
+                </div>
+                <div class="px-4 pb-4">
+                    <p style="color: darkred; font-weight: bold;">Model accuracy: </p>
+                    <ul class="text-[12px] text-[#720404] pl-2 list-disc">
+                        <li>Độ phù hợp tập test: {{model_accuracy[0]}}</li>
+                        <li>Sai số tuyệt đối TB trên tập test (VNĐ): {{model_accuracy[1]}}</li>
+                        <li>Phần trăm sai số tuyệt đối trung bình tập test: {{model_accuracy[2]}}</li>
+                    </ul>
+                </div>
+                <div class="px-4 pb-4">
+                    <p style="color: darkred; font-weight: bold;">Visualize data predict</p>
+                    <img src="{{ image_visualize_predict }}" alt="Image visualize">
+                </div>
+
+                <div class="px-4 pb-4 flex justify-between">
+                    <p style="color: darkred; font-weight: bold;">Ticket: </p>
+                    <p style="color: darkred; font-weight: bold;">{{ tickets }}</p>
+                </div>
+                <div class="px-4 pb-4 flex justify-between">
+                    <p style="color: darkred; font-weight: bold;">Date: </p>
+                    <p style="color: darkred; font-weight: bold;">{{ date }}</p>
+                </div>
+                <center class="px-4 pb-4">
+                    <p style="color: darkred; font-weight: bold;">Predict price: {{pred_price}}</p>
+                    <p style="color: darkred; font-weight: bold;">Actual price: {{actual_price}}</p>
+                </center>
+            </div>
+            <form class="form pb-4" action="{{url_for('index')}}">
+                <div class="">
+                    <button type="submit" class="action-button rounded-[20px] py-3">Back</button>
+                </div> 
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

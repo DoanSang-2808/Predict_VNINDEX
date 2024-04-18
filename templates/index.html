@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNINDEX predict</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+
+<body>
+    <div class="container container-image">
+        <!-- code here -->
+        <div class="card">
+            <div class="card-image">
+                <h2 class="card-heading">
+                    VNINDEX price prediction
+                </h2>
+            </div>
+            <form class="card-form" action="{{url_for('home')}}" method="POST">
+                <div class="select">
+                    <label class="input-label" for="cars">Choose a ticket:</label>
+                    <br />
+                    <select name="tickets" id="tickets" class="select-field">
+                        <option value="VNM">VNM</option>
+                        <option value="VNINDEX">VNINDEX</option>
+                        <option value="VN30">VN30</option>
+                    </select>   
+                </div>
+                <div class="input">
+                    <input name="date" type="date" step="any" class="input-field" required min="2023-01-01" max="2023-12-31" />
+                    <label class="input-label"> Choose Date</label>
+                </div>
+                <div class="action">
+                    <button type="submit" class="action-button">Submit</button>
+                </div> 
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

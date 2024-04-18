@@ -1,0 +1,13 @@
+gunicorn
+numpy
+flask
+joblib
+scikit-learn
+tensorflow
+scipy
+pandas
+vnstock
+datetime
+matplotlib
+imgurpython
+bs4
