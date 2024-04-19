@@ -29,6 +29,13 @@ app =Flask(__name__)
 IMG_FOLDER=os.path.join('static','IMG')
 app.config['UPLOAD_FOLDER']=IMG_FOLDER
 
+TYPE_TICKET = {
+    'VNM': 'stock',
+    'VNINDEX': 'index',
+    'VN30F1M': 'derivative',
+    'TCB': 'stock'
+}
+
 #hàm format date
 def format_date(date):
     date_format = datetime.datetime.strptime(date, "%Y-%m-%d").date()
@@ -39,7 +46,7 @@ def read_data(tickets, start_date, end_date):
     return stock_historical_data(symbol=tickets,
                             start_date=start_date,
                             end_date=end_date,
-                            resolution='1D', type='stock', source='DNSE')
+                            resolution='1D', type=TYPE_TICKET[tickets], source='DNSE')
 
 #Hàm visualization
 def visualization_data(df):
