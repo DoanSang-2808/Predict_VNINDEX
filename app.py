@@ -161,7 +161,7 @@ def index():
 
     return render_template('index.html')
 
-@app.route('/predict',methods=['GET','POST'])
+@app.route('/predict',methods=['POST'])
 def home():
     if request.method =='POST':
         # request data from form
@@ -184,7 +184,7 @@ def home():
         predictions = final_model.predict(x_test)
         predictions = scaler.inverse_transform(predictions)
 
-         # kiểm tra độ chính xác của mô hình
+        # kiểm tra độ chính xác của mô hình
         r2 = r2_score(y_test, predictions)
         mae = mean_absolute_error(y_test, predictions)
         mape = mean_absolute_percentage_error(y_test, predictions)
