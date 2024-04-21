@@ -36,6 +36,13 @@ TYPE_TICKET = {
     'TCB': 'stock'
 }
 
+SOURCE_TICKET = {
+    'VNM': 'DNSE',
+    'VNINDEX': 'TCBS',
+    'VN30F1M': 'DNSE',
+    'TCB': 'DNSE'
+}
+
 #hàm format date
 def format_date(date):
     date_format = datetime.datetime.strptime(date, "%Y-%m-%d").date()
@@ -46,7 +53,7 @@ def read_data(tickets, start_date, end_date):
     return stock_historical_data(symbol=tickets,
                             start_date=start_date,
                             end_date=end_date,
-                            resolution='1D', type=TYPE_TICKET[tickets], source='DNSE')
+                            resolution='1D', type=TYPE_TICKET[tickets], source=SOURCE_TICKET[tickets])
 
 #Hàm visualization
 def visualization_data(df):
